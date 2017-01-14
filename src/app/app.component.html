@@ -1,3 +1,27 @@
-<h1>
-  {{title}}
-</h1>
+<div id="energyCostCalculator">
+  <main>
+    <iz-incandescent></iz-incandescent>
+    <iz-halogen></iz-halogen>
+    <iz-cfl></iz-cfl>
+    <iz-led></iz-led>
+  </main>
+  <form>
+    <div>
+      <h4>Lúmenes</h4>
+      <p>Brillo <br>de la bombilla</p>
+      <select [(ngModel)]="lumenOption" [ngModelOptions]="{standalone: true}" (change)="calculateEnergyCost()">
+        <option *ngFor="let lumen of lumenOptions" [value]="lumen">{{lumen}}</option>
+      </select>
+    </div>
+    <div>
+      <h4>kWh</h4>
+      <p>Kilovatio-<br>costo hora</p>
+      <input type="number" [(ngModel)]="kWh" [ngModelOptions]="{standalone: true}" (change)="calculateEnergyCost()"> pesos
+    </div>
+    <div>
+      <h4>Horas</h4>
+      <p>Uso <br>por día</p>
+      <input type="number" [(ngModel)]="hours" [ngModelOptions]="{standalone: true}" (change)="calculateEnergyCost()">
+    </div>
+  </form>
+</div>
